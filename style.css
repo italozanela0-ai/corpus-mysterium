@@ -1,0 +1,684 @@
+:root {
+    /* Paleta Oficial */
+    --ivory-eucharistic: #F3EBDD;
+    --cream: #E8DFCF;
+    --incense-black: #171513;
+    --blood-red: #8C1D2B;
+    /* Vermelho sangue vivo */
+    --blood-deep: #54101A;
+    /* Vinho sacramental escuro */
+    --liturgical-gold: #B8954A;
+    /* Dourado litúrgico */
+
+    /* Tipografia */
+    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Dimensões */
+    --header-height: 92px;
+    --container-max: 1400px;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--ivory-eucharistic);
+    color: var(--incense-black);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   HEADER PRINCIPAL
+   ========================================== */
+.corpus-header {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Garante que o header fique acima dos outros elementos */
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--ivory-eucharistic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(184, 149, 74, 0.2);
+}
+
+/* Fundo editorial sóbrio (Sem néon/brilho artificial) */
+.sacred-atmosphere {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.25;
+    background: linear-gradient(180deg, rgba(140, 29, 43, 0.04) 0%, transparent 100%);
+}
+
+.header-container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================
+   LOGO & BRANDING (ESQUERDA)
+   ========================================== */
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.brand-placeholder {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    text-decoration: none;
+    color: var(--incense-black);
+    transition: opacity 0.25s ease;
+}
+
+.brand-placeholder:hover {
+    opacity: 0.82;
+}
+
+.brand-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    /* Aumentado de 42px para 60px */
+    height: 60px;
+    /* Aumentado de 42px para 60px */
+    flex-shrink: 0;
+}
+
+.brand-symbol svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--incense-black);
+    line-height: 1.1;
+}
+
+.brand-subtitle {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blood-deep);
+    margin-top: 3px;
+}
+
+/* ==========================================
+   NAVEGAÇÃO PRINCIPAL (DESKTOP)
+   ========================================== */
+.main-nav {
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--incense-black);
+    padding: 0.5rem 0;
+    transition: color 0.25s ease;
+}
+
+/* Linha de seleção elegante ao passar o mouse */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--blood-red);
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+    color: var(--blood-red);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Detalhe inferior em degradê litúrgico */
+.sacred-bottom-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--liturgical-gold) 20%,
+            var(--blood-red) 50%,
+            var(--liturgical-gold) 80%,
+            transparent 100%);
+    opacity: 0.6;
+    z-index: 3;
+}
+
+/* ==========================================
+   BOTÃO MENU MOBILE
+   ========================================== */
+.header-actions {
+    display: none;
+}
+
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 4px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--incense-black);
+    transition: transform 0.3s ease;
+}
+
+/* ==========================================
+   GAVETA MOBILE (MOBILE DRAWER)
+   ========================================== */
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--ivory-eucharistic);
+    border-left: 1px solid var(--liturgical-gold);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(23, 21, 19, 0.12);
+}
+
+.mobile-drawer.open {
+    right: 0;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(184, 149, 74, 0.25);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.drawer-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--blood-deep);
+    text-transform: uppercase;
+}
+
+.drawer-close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--incense-black);
+    line-height: 1;
+}
+
+.drawer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.drawer-link {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    color: var(--incense-black);
+    letter-spacing: 0.08em;
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.drawer-link:hover {
+    color: var(--blood-red);
+    transform: translateX(4px);
+}
+
+.drawer-footer {
+    margin-top: auto;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--blood-deep);
+    text-align: center;
+    border-top: 1px solid rgba(184, 149, 74, 0.25);
+    padding-top: 1.5rem;
+    text-transform: uppercase;
+}
+
+.drawer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(23, 21, 19, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.drawer-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================== */
+@media (max-width: 968px) {
+    .header-container {
+        padding: 0 1.5rem;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .header-actions {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-title {
+        font-size: 1.05rem;
+    }
+}
+
+.imagemPrincipal {
+    background-image: url(/imagens/last-supper-jesus-desktop-7qcbirqkfvjuj2x7.jpg);
+    height: 1050px;
+}
+
+
+
+.informacoes {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    text-transform: uppercase;
+
+    p {
+        display: flex;
+        font-size: large;
+        border-radius: 15px;
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: none;
+        max-width: 500px;
+        margin: 20px auto 0 auto;
+
+    }
+}
+
+.cards {
+    background-color: #B8954A;
+    display: flex;
+    height: 70rem;
+    margin-top: 100px;
+}
+
+/* ==========================================
+   GRELHA DE CARDS DE MILAGRES (3 COLUNAS)
+   ========================================== */
+.miracles-gallery-section {
+    background-color: var(--ivory-eucharistic);
+    padding: 4rem 0;
+}
+
+/* Configuração do Grid de 3 Colunas */
+.miracles-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas idênticas */
+    gap: 2.5rem 2rem;                       /* Espaçamento entre os cards */
+    margin-top: 3rem;
+}
+
+/* Estrutura do Card Clicável */
+.miracle-photo-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--incense-black);
+    background-color: var(--cream);
+    border: 1px solid rgba(184, 149, 74, 0.35);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.35s ease, 
+                border-color 0.35s ease;
+}
+
+/* Efeito ao passar o rato (Hover) */
+.miracle-photo-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--liturgical-gold);
+    box-shadow: 0 16px 32px rgba(23, 21, 19, 0.12);
+}
+
+/* Contentor da Foto */
+.card-photo-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Mantém a proporção elegante da foto */
+    overflow: hidden;
+    background-color: var(--incense-black);
+}
+
+.card-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem sem distorcer */
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    filter: brightness(0.92) contrast(1.02);
+}
+
+/* Zoom suave na imagem ao passar o rato */
+.miracle-photo-card:hover .card-photo {
+    transform: scale(1.07);
+    filter: brightness(1) contrast(1.05);
+}
+
+/* Badge de Época na Foto */
+.card-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(23, 21, 19, 0.85);
+    color: var(--liturgical-gold);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(184, 149, 74, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+/* Corpo do Card */
+.card-body {
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.card-location {
+    color: var(--blood-deep);
+    font-weight: 600;
+}
+
+.card-type {
+    color: #6E6860;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--incense-black);
+    line-height: 1.25;
+    margin-bottom: 0.8rem;
+    transition: color 0.25s ease;
+}
+
+.miracle-photo-card:hover .card-title {
+    color: var(--blood-red);
+}
+
+.card-description {
+    font-size: 0.88rem;
+    color: #55504A;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Ação de Clique no Fundo do Card */
+.card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blood-red);
+    border-top: 1px solid rgba(184, 149, 74, 0.25);
+    padding-top: 1rem;
+    margin-top: auto;
+    transition: color 0.25s ease;
+}
+
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s ease;
+}
+
+.miracle-photo-card:hover .card-action {
+    color: var(--blood-deep);
+}
+
+.miracle-photo-card:hover .arrow-icon {
+    transform: translateX(5px);
+}
+
+/* ==========================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ========================================== */
+@media (max-width: 1024px) {
+    .miracles-photo-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+        gap: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .miracles-photo-grid {
+        grid-template-columns: 1fr; /* 1 coluna em telemóveis */
+    }
+    
+    .card-photo-wrapper {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* ESTRUTURA GERAL DA SECÇÃO */
+.seccao-introducao {
+  background-color: #F8F5EE; /* Tom bege claro/pergaminho */
+  padding: 4rem 1.5rem;
+  color: #2A2A2A;
+}
+
+/* CONTAINER COM LARGURA DE LEITURA CONFORTÁVEL */
+.container-editorial {
+  max-width: 780px; /* Largura ideal para leitura de textos longos */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* HEADER EDITORIAL */
+.editorial-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.editorial-subtitulo {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #8A6D2B; /* Dourado escuro */
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.editorial-titulo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.editorial-tagline {
+  font-size: 1.05rem;
+  color: #555555;
+  font-weight: 400;
+}
+
+/* DIVISOR SAGRADO ELEGANTE */
+.sacred-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.sacred-divider .line {
+  height: 1px;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, #B8954A, transparent);
+}
+
+.sacred-divider .symbol {
+  color: #B8954A;
+  font-size: 1.1rem;
+}
+
+/* CONTEÚDO E TIPOGRAFIA */
+.editorial-conteudo p {
+  text-align: justify; /* Textos longos ficam mais alinhados e organizados */
+  font-size: 1.1rem;
+  line-height: 1.8; /* Espaçamento entre linhas para melhor leitura */
+  color: #333333;
+  margin-bottom: 1.5rem;
+}
+
+/* LETRA CAPITULAR (DROP CAP) */
+.drop-cap {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  float: left;
+  font-size: 3.8rem;
+  line-height: 0.8;
+  padding-right: 0.6rem;
+  padding-top: 0.2rem;
+  color: #8C1D2B; /* Vermelho rubi / Sangue */
+  font-weight: 700;
+}
+
+/* SECÇÃO DO CATÁLOGO (AJUSTE DE MARGENS) */
+.seccao-catalogo {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.catalogo-titulo {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  color: #1A1A1A;
+  margin-bottom: 0.4rem;
+  text-align: center;
+}
+
+.catalogo-subtitulo {
+  font-size: 0.95rem;
+  color: #666666;
+}
+
+/* RESPONSIVIDADE PARA TELEMÓVEL */
+@media (max-width: 768px) {
+  .editorial-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .editorial-conteudo p {
+    text-align: left; /* Em ecrãs pequenos, o alinhamento à esquerda funciona melhor */
+    font-size: 1rem;
+  }
+}

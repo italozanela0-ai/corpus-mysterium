@@ -359,19 +359,18 @@ body {
 
 .imagemPrincipal {
     width: 100%;
-    margin: 0;
+    margin: 0 0 2rem 0;
     padding: 0;
     text-align: center;
 }
 
 .imagemPrincipal img {
-    width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
-    display: block !important;
-    object-fit: initial !important; /* Desliga qualquer redimensionamento forçado */
+    width: 100%;
+    height: 280px;         /* Define uma altura fixa perfeita para telemóvel */
+    object-fit: cover;     /* Preenche a largura sem distorcer */
+    object-position: 50% 20%; /* Puxa o foco da imagem mais para baixo, garantindo que a parte de cima (cabeças) aparece toda */
+    display: block;
 }
-
 
 
 .informacoes {

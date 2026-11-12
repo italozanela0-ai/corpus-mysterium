@@ -361,7 +361,7 @@ body {
     width: 100%;
     /* Define a proporção exata da imagem para ela nunca se deformar nem cortar */
     aspect-ratio: 16 / 9; 
-    background-image: url('caminho-da-sua-imagem.jpg'); /* Mantenha o link da sua imagem aqui */
+    background-image: url('imagens/last-supper-jesus-desktop-7qcbirqkfvjuj2x7.jpg'); /* Mantenha o link da sua imagem aqui */
     background-size: contain; /* Garante que a imagem aparece 100% inteira */
     background-position: center;
     background-repeat: no-repeat;

@@ -359,13 +359,11 @@ body {
 
 .banner-ceia {
     width: 100%;
-    /* Define a proporção exata da imagem para ela nunca se deformar nem cortar */
-    aspect-ratio: 16 / 9; 
-    background-image: url('imagens/last-supper-jesus-desktop-7qcbirqkfvjuj2x7.jpg'); /* Mantenha o link da sua imagem aqui */
-    background-size: contain; /* Garante que a imagem aparece 100% inteira */
-    background-position: center;
+    height: 250px; /* Altura ideal para o banner no telemóvel */
+    background-image: url('imagens/nome-da-sua-imagem.jpg'); /* Ajuste para o nome real da sua pasta/imagem */
+    background-size: cover;        /* Estica a imagem para preencher toda a largura do telemóvel */
+    background-position: top center; /* Fixa o topo (cabeças) na tela e corta o excesso por baixo (pés) */
     background-repeat: no-repeat;
-    background-color: #000; /* Fundo preto elegante se sobrarem margens laterais */
     margin-bottom: 2rem;
 }
 

@@ -357,21 +357,17 @@ body {
     }
 }
 
-.imagemPrincipal {
+.banner-ceia {
     width: 100%;
-    margin: 0 0 2rem 0;
-    padding: 0;
-    text-align: center;
+    /* Define a proporção exata da imagem para ela nunca se deformar nem cortar */
+    aspect-ratio: 16 / 9; 
+    background-image: url('caminho-da-sua-imagem.jpg'); /* Mantenha o link da sua imagem aqui */
+    background-size: contain; /* Garante que a imagem aparece 100% inteira */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000; /* Fundo preto elegante se sobrarem margens laterais */
+    margin-bottom: 2rem;
 }
-
-.imagemPrincipal img {
-    width: 100%;
-    height: 280px;         /* Define uma altura fixa perfeita para telemóvel */
-    object-fit: cover;     /* Preenche a largura sem distorcer */
-    object-position: 50% 20%; /* Puxa o foco da imagem mais para baixo, garantindo que a parte de cima (cabeças) aparece toda */
-    display: block;
-}
-
 
 .informacoes {
     display: block;

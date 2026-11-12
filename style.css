@@ -358,8 +358,18 @@ body {
 }
 
 .imagemPrincipal {
-    background-image: url(/imagens/last-supper-jesus-desktop-7qcbirqkfvjuj2x7.jpg);
-    height: 1050px;
+    width: 100%;         /* Ocupa 100% da largura da tela */
+    margin: 0 0 2rem 0;  /* Remove margens laterais e deixa apenas um espaço em baixo */
+    padding: 0;          /* Remove espaçamentos internos indesejados */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.imagemPrincipal img {
+    width: 100%;       /* Estica a imagem para preencher toda a largura da tela com perfeição */
+    height: auto;      /* Mantém a proporção exata da pintura para nunca distorcer */
+    display: block;
+    border-radius: 0;  /* Remove bordas arredondadas para ocupar a largura total de ponta a ponta */
 }
 
 

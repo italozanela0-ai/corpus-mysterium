@@ -358,18 +358,21 @@ body {
 }
 
 .imagemPrincipal {
-    width: 100%;         /* Ocupa 100% da largura da tela */
-    margin: 0 0 2rem 0;  /* Remove margens laterais e deixa apenas um espaço em baixo */
-    padding: 0;          /* Remove espaçamentos internos indesejados */
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 2rem 0;
+    padding: 0;
     box-sizing: border-box;
     text-align: center;
+    overflow: hidden;
 }
 
 .imagemPrincipal img {
-    width: 100%;       /* Estica a imagem para preencher toda a largura da tela com perfeição */
-    height: auto;      /* Mantém a proporção exata da pintura para nunca distorcer */
+    width: 100%;
+    height: auto;
     display: block;
-    border-radius: 0;  /* Remove bordas arredondadas para ocupar a largura total de ponta a ponta */
+    /* Garante que a imagem se ajuste sem cortar pedaços importantes */
+    object-fit: contain; 
 }
 
 

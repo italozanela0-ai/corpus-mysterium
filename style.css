@@ -359,20 +359,17 @@ body {
 
 .imagemPrincipal {
     width: 100%;
-    margin: 0 0 2rem 0;
+    margin: 0;
     padding: 0;
-    box-sizing: border-box;
     text-align: center;
-    background-color: #000; /* Preenche eventuais barras laterais com preto elegante */
 }
 
 .imagemPrincipal img {
-    width: 100%;
-    height: auto;
-    max-height: 70vh;    /* Impede que a imagem fique gigante no telemóvel */
-    display: block;
-    margin: 0 auto;
-    object-fit: contain; /* Garante que 100% da imagem aparece sem cortes */
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    display: block !important;
+    object-fit: initial !important; /* Desliga qualquer redimensionamento forçado */
 }
 
 

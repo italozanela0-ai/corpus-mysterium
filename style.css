@@ -357,14 +357,31 @@ body {
     }
 }
 
+/* 1. Comportamento para o COMPUTADOR (Ecrãs largos) */
 .banner-ceia {
     width: 100%;
-    height: 250px; /* Altura ideal para o banner no telemóvel */
-    background-image: url('imagens/last-supper-jesus-desktop-7qcbirqkfvjuj2x7.jpg'); /* Ajuste para o nome real da sua pasta/imagem */
-    background-size: cover;        /* Estica a imagem para preencher toda a largura do telemóvel */
-    background-position: top center; /* Fixa o topo (cabeças) na tela e corta o excesso por baixo (pés) */
+    height: 450px;
+    background-image: url('imagens/nome-da-sua-imagem.jpg');
+    background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
+    background-color: #000;
     margin-bottom: 2rem;
+}
+
+/* 2. Comportamento para o TELEMÓVEL (Mostra até às canelas) */
+@media (max-width: 768px) {
+    .banner-ceia {
+        height: 280px; /* Um bocadinho mais alto para caber até às canelas */
+        background-size: cover;
+        /* 
+          O primeiro valor (50%) centrará na horizontal.
+          O segundo valor (30%) desce a imagem um pouco mais, 
+          garantindo que as cabeças continuam visíveis em cima e o corte 
+          só acontece mais abaixo (na zona das canelas/pés).
+        */
+        background-position: 50% 30%; 
+    }
 }
 
 .informacoes {
